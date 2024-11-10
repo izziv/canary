@@ -1,35 +1,35 @@
 # Deployment Information
 pods_status:
-  main_pods_running: #TODO: Enter number of main pods running
-  canary_pods_running: #TODO: Enter number of canary pods running
+  main_pods_running: 3
+  canary_pods_running: 1
 
 # Service Information
 service_endpoints:
-  main_service_cluster_ip: #TODO: Enter the ClusterIP of main service
-  canary_service_cluster_ip: #TODO: Enter the ClusterIP of canary service
+  main_service_cluster_ip: 10.104.188.230
+  canary_service_cluster_ip: 10.99.232.210 
 
 # Ingress Information
 ingress_details:
-  address: #TODO: Enter the Ingress controller IP address
-  host: #TODO: Enter the configured host (should be canary-demo.local)
+  address: 192.168.49.2
+  host: canary-demo.local
 
 # Metrics
 main_deployment_metrics:
-  http_requests_total: #TODO: Enter the value from main deployment's /metrics endpoint
-  process_cpu_seconds_total: #TODO: Enter the CPU seconds from main deployment
-  process_resident_memory_bytes: #TODO: Enter the memory usage from main deployment
+  http_requests_total: 7.0 # http_requests_total{version="v1"}
+  process_cpu_seconds_total: 0.4
+  process_resident_memory_bytes: 3.2395264e+07
 
 canary_deployment_metrics:
-  http_requests_total: #TODO: Enter the value from canary deployment's /metrics endpoint
-  process_cpu_seconds_total: #TODO: Enter the CPU seconds from canary deployment
-  process_resident_memory_bytes: #TODO: Enter the memory usage from canary deployment
+  http_requests_total: 4.0 # http_requests_total{version="v3"} 
+  process_cpu_seconds_total: 0.29
+  process_resident_memory_bytes: 3.043328e+07
 
 # Traffic Distribution Test
 traffic_test_results:
-  total_requests_sent: #TODO: Enter how many test requests you sent (should be 20)
-  main_responses_received: #TODO: Enter how many responses were from main deployment
-  canary_responses_received: #TODO: Enter how many responses were from canary deployment
-  actual_canary_percentage: #TODO: Calculate the actual percentage of canary traffic
+  total_requests_sent: 20
+  main_responses_received: 7
+  canary_responses_received: 4
+  actual_canary_percentage: 36%
 
 # Prometheus Queries
 prometheus_metrics:
@@ -44,8 +44,8 @@ rollback_test:
 
 # Error Budget Calculation (based on 99.9% SLO)
 error_budget:
-  monthly_error_budget_seconds: #TODO: Calculate and enter the monthly error budget in seconds
-  remaining_error_budget_percentage: #TODO: Enter current remaining error budget percentage
+  monthly_error_budget_seconds: 2592.00
+  remaining_error_budget_percentage: 100.00%
 
 # Additional Observations
 observations:
